@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'PingFangSC-Medium'; src: url('../assets/font/PingFang Medium.ttf');
+}
+
+html,body {
+    font-family: 'PingFangSC-Medium', sans-serif;
+}
 /* 基础设置 */
 .container {
     width: 1190px;
@@ -84,15 +91,13 @@
 .header .search button {
     height: 36px;
     width: 80px;
-    /* border: 1px solid red; */
     background-color: #DD302D;
     /* input和button没对齐，因为有文字，90%是基线造成的问题。这里采用vertical-align属性解决问题  */
     vertical-align: top;
     background-image: url('../images/serch_icon.png');
     background-repeat: no-repeat;
-    background-position: 28px 6px;
+    background-position: center;
 }
-
 
 .main-nav {
     height: 48px;
@@ -121,30 +126,80 @@
     margin: 0 10px;
 }
 
-.main-content .slide-nav {
+.main-content {
+    margin-top: 10px;
+}
+
+.main-content .side-nav {
     width: 190px;
     height: 458px;
     background-color: #f4f4f4;
+    position: relative;
 }
 
-.main-content {
-    margin-top: 9.4px;
-}
-
-.main-content .slide-nav li {
+.main-content .side-nav li {
     font-size: 14px;
     color:#333;
     /* 除了使用margin控制边距，还可以计算行高 */
     /* margin: 7px 0 7px 16px; */
+    /* height: 28px; */
     line-height: 28px;
     /* 悬浮出现背景色，所以不用margin用padding */
     padding-left: 16px;
 }
 
-.main-content .slide-nav li:hover,
-.main-content .slide-nav li:hover a {
+.main-content .side-nav li:hover,
+.main-content .side-nav li:hover>a {
     background-color: #DD302D;
     color: white;
+}
+
+/* 先定义好尺寸和位置隐藏起来 */
+.main-content .side-nav .second-menu {
+    width: 680px;
+    height: 458px;
+    position: absolute;
+    top: 0;
+    left: 190px;
+    padding-left: 20px;
+    background-color: white;
+    display: none;
+}
+
+/* 当鼠标悬浮在<li>上时再出现 */
+.main-content .side-nav li:hover .second-menu {
+    display: block;
+}
+/* .main-content .side-nav li:hover .second-menu {
+    不能这样写 否则定义列表会出现在无序列表中。
+*/
+
+.second-menu dl {
+    height: 36px;
+    line-height: 36px;
+}
+
+.second-menu dl:first-of-type {
+    margin-top: 10px;
+}
+
+/* 让定义列表横向排列 */
+.second-menu dt {
+    float: left;
+    width: 70px;
+    height: 20px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.second-menu dd {
+    float: left;
+}
+
+.second-menu dd a {
+    border-left: 1px solid #666;
+    /* 小细节 */
+    padding: 0 10px;
 }
 
 
@@ -155,8 +210,147 @@
     margin: 0 10px;
 }
 
-.main-content .slide-other {
+.main-content .side-other {
     width: 290px;
     height: 458px;
-    background-color: beige;
+    /* background-color: beige; */
+}
+
+.side-other .message {
+    padding: 0 14px;
+    width: 260px;
+    height: 156px;
+    border: 1px solid rgba(217,217,217,1);
+}
+
+.side-other .message .title {
+    height: 38px;
+    line-height: 38px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.side-other .message .title span {
+    font-size: 14px;
+}
+
+.side-other .message .title a {
+    font-size: 12px;
+    color: #999;
+}
+
+.side-other .message .msg-list {
+    /* 上下边距相等，各取一半加上自身高度 */
+    height: 26px;
+    line-height: 26px;
+}
+
+.side-other .other-nav {
+    margin-top: 10px;
+    width: 290px;
+    height: 290px;
+    /* background-color: cadetblue; */
+    /* fix margin collapse for first child */
+    overflow: hidden;
+}
+
+.other-nav .other-nav-list:first-child {
+    margin-top: 16px;
+}
+
+.other-nav .other-nav-list:nth-child(2) {
+    /* 踩坑：类忘记加了clearfix 如果第二个ul没有清除浮动，第3个ul外边距不会生效 */
+    margin: 17px 0;
+}
+
+.other-nav .other-nav-list li {
+    width: 48px;
+    height: 70px;
+    float: left;
+    margin: 0 11px;
+    text-align: center;
+    cursor:pointer;
+    /* background-color: yellowgreen; */
+}
+
+.other-nav .other-nav-list li:first-child {
+    margin-left: 16px;
+}
+
+.other-nav .other-nav-list li:last-child {
+    margin-right: 16px;
+}
+
+.other-nav .other-nav-list .pic {
+    width: 48px;
+    height: 48px;
+    background-image: url(../images/精灵图-侧边功能.png);
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+/* First row */
+.other-nav .other-nav-list:nth-child(1) li:nth-child(1) .pic {
+    background-position: calc(0 * -48px) calc(0 * -48px);
+}
+
+.other-nav .other-nav-list:nth-child(1) li:nth-child(2) .pic {
+    background-position: calc(1 * -48px) calc(0 * -48px);
+}
+
+.other-nav .other-nav-list:nth-child(1) li:nth-child(3) .pic {
+    background-position: calc(2 * -48px) calc(0 * -48px);
+}
+
+.other-nav .other-nav-list:nth-child(1) li:nth-child(4) .pic {
+    background-position: calc(3 * -48px) calc(0 * -48px);
+}
+
+/* Second row */
+.other-nav .other-nav-list:nth-child(2) li:nth-child(1) .pic {
+    background-position: calc(0 * -48px) calc(1 * -48px);
+}
+
+.other-nav .other-nav-list:nth-child(2) li:nth-child(2) .pic {
+    background-position: calc(1 * -48px) calc(1 * -48px);
+}
+
+.other-nav .other-nav-list:nth-child(2) li:nth-child(3) .pic {
+    background-position: calc(2 * -48px) calc(1 * -48px);
+}
+
+.other-nav .other-nav-list:nth-child(2) li:nth-child(4) .pic {
+    background-position: calc(3 * -48px) calc(1 * -48px);
+}
+
+/* Third row */
+.other-nav .other-nav-list:nth-child(3) li:nth-child(1) .pic {
+    background-position: calc(0 * -48px) calc(2 * -48px);
+}
+
+.other-nav .other-nav-list:nth-child(3) li:nth-child(2) .pic {
+    background-position: calc(1 * -48px) calc(2 * -48px);
+}
+
+.other-nav .other-nav-list:nth-child(3) li:nth-child(3) .pic {
+    background-position: calc(2 * -48px) calc(2 * -48px);
+}
+
+.other-nav .other-nav-list:nth-child(3) li:nth-child(4) .pic {
+    background-position: calc(3 * -48px) calc(2 * -48px);
+}
+
+/*TODO 试解决把分区合并至main-content，则margin塌陷问题 */
+.seckill {
+    margin-top: 10px;
+}
+
+.seckill img {
+    /* display: inline-block; 能用浮动，别用这个 */
+    float: left;
+    margin-right: 11px;
+    cursor:pointer;
+}
+
+.seckill img:last-child {
+    margin-right: 0;
 }
