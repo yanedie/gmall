@@ -2,9 +2,6 @@
     font-family: 'PingFangSC-Medium'; src: url('../assets/font/PingFang Medium.ttf');
 }
 
-html,body {
-    font-family: 'PingFangSC-Medium', sans-serif;
-}
 /* 基础设置 */
 .container {
     width: 1190px;
@@ -170,9 +167,6 @@ html,body {
 .main-content .side-nav li:hover .second-menu {
     display: block;
 }
-/* .main-content .side-nav li:hover .second-menu {
-    不能这样写 否则定义列表会出现在无序列表中。
-*/
 
 .second-menu dl {
     height: 36px;
@@ -288,7 +282,7 @@ html,body {
     overflow: hidden;
 }
 
-/* First row */
+/* X轴依次平移-48px，Y轴处于原点 */
 .other-nav .other-nav-list:nth-child(1) li:nth-child(1) .pic {
     background-position: calc(0 * -48px) calc(0 * -48px);
 }
@@ -305,7 +299,7 @@ html,body {
     background-position: calc(3 * -48px) calc(0 * -48px);
 }
 
-/* Second row */
+/* X轴依次平移-48px,y轴每次固定平移-48px */
 .other-nav .other-nav-list:nth-child(2) li:nth-child(1) .pic {
     background-position: calc(0 * -48px) calc(1 * -48px);
 }
@@ -322,7 +316,7 @@ html,body {
     background-position: calc(3 * -48px) calc(1 * -48px);
 }
 
-/* Third row */
+/* X轴依次平移-48px,y轴每次固定平移-96px */
 .other-nav .other-nav-list:nth-child(3) li:nth-child(1) .pic {
     background-position: calc(0 * -48px) calc(2 * -48px);
 }
@@ -342,6 +336,7 @@ html,body {
 /*TODO 试解决把分区合并至main-content，则margin塌陷问题 */
 .seckill {
     margin-top: 10px;
+    margin-bottom: 48px;
 }
 
 .seckill img {
@@ -353,4 +348,107 @@ html,body {
 
 .seckill img:last-child {
     margin-right: 0;
+}
+
+.floor {
+    margin-top: 48px;
+}
+
+.floor-nav {
+    height: 30px;
+    line-height: 30px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #DD302D;
+}
+
+.floor-nav .floor-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.floor-nav .floor-nav-list li {
+    /** ul右浮，li左浮，否则顺序RTL */
+    /*TODO 找到父元素 添加clearfix */
+    float: left;
+}
+
+.floor-nav .floor-nav-list li a {
+    font-size: 16px;
+    padding: 0 10px;
+    border-left: 1px solid #666;
+}
+
+.floor-nav .floor-nav-list li:first-child a {
+    border-left: 0;
+    color: #DD302D;
+}
+
+.floor-nav .floor-nav-list li:last-child a {
+    padding-right: 0px;
+}
+
+.floor-info .item {
+    float: left;
+    height: 432px;
+}
+
+.floor-info .item1 {
+    width: 190px;
+    height: 392px;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* .floor-info .item1 .top-item {
+    width: 190px;
+    height: 108px;
+} */
+
+.floor-info .item1 .top-item ul li {
+    width: 90px;
+    font-size: 16px;
+    text-align: center;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.floor-info .item1 .top-item ul li:nth-child(2n-1) {
+    float: left;
+}
+
+.floor-info .item1 .top-item ul li:nth-child(2n) {
+    float: right;
+}
+
+.floor-info .item1 .top-item ul li:nth-child(3),
+.floor-info .item1 .top-item ul li:nth-child(4) {
+    margin: 14.4px 0;
+}
+
+.floor-info .item img {
+    cursor: pointer;
+}
+
+.floor-info .item1 img {
+    margin: 31px 0;
+}
+
+.floor-info .item2 {
+    width: 340px;
+}
+
+.floor-info .item3,
+.floor-info .item4,
+.floor-info .item5 {
+    width: 206px;
+}
+
+.floor-info .item3,
+.floor-info .item4 {
+    border-right: 1px solid #e2e2e2;
+}
+
+.floor-info .item3 img,
+.floor-info .item4 img,
+.floor-info .item5 img {
+    border-bottom: 1px solid #e2e2e2;
 }
