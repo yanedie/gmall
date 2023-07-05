@@ -373,7 +373,7 @@
 }
 
 .floor-nav .floor-nav-list li a {
-    font-size: 16px;
+    font-size: 14px;
     padding: 0 10px;
     border-left: 1px solid #666;
 }
@@ -406,6 +406,8 @@
 
 .floor-info .item1 .top-item ul li {
     width: 90px;
+    height: 22px;
+    padding-bottom: 3.5px;
     font-size: 16px;
     text-align: center;
     border-bottom: 1px solid #d9d9d9;
@@ -451,4 +453,66 @@
 .floor-info .item4 img,
 .floor-info .item5 img {
     border-bottom: 1px solid #e2e2e2;
+}
+
+.footer {
+    height: 440px;
+    background-color: #483E3E;
+    margin-top: 49px
+}
+
+.links-list {
+    width: 190px;
+    height: 176px;
+    float: left;
+    margin-top: 48px;
+    margin-right: 10px;
+}
+
+.links-list:last-child {
+    margin-right: 0;
+}
+
+.links-list li a {
+    font-size: 14px;
+    color: #fff;
+}
+
+.line {
+    margin-top: 22px;
+    height: 1px;
+    background-color: #584D4D;
+}
+.bottom-links {
+    text-align: center;
+}
+
+.bottom-links-list {
+    /* text-align不生效加了这个就居中了 */
+    /* 列表是块元素，text-align针对内联元素 */
+    display: inline-block;
+}
+
+.bottom-links-list li {
+    margin-top: 47px;
+    float: left;
+}
+
+.bottom-links-list li a {
+    color: #fff;
+    padding: 0 18px;
+    border-right: 1px solid #fff;
+}
+
+.bottom-links-list li:first-child a:first-child {
+    padding-left: 0;
+}
+
+.bottom-links-list li:last-child a:last-child {
+    border-right: none;
+}
+
+.ICP {
+    margin-top: 10px;
+    color: #fff;
 }
